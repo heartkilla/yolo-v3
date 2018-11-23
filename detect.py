@@ -44,7 +44,7 @@ def main(iou_threshold, confidence_threshold, img_names):
 
     draw_boxes(img_names, detection_result, class_names, _MODEL_SIZE)
 
-    print('Detections has been saved successfully.')
+    print('Detections have been saved successfully.')
 
 
 if __name__ == '__main__':
