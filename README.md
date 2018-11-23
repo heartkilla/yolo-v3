@@ -7,7 +7,7 @@ Yolo v3 is an algorithm using deep convolutional neural networks to detect objec
 This project is written in Python 3.6.6 using Tensorflow (deep learning), NumPy (numerical computing) and Pillow (image processing) packages.
 
 ```
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 ### Downloading official pretrained weights
