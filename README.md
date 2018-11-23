@@ -37,11 +37,14 @@ python detect.py 0.5 0.5 data/images/dog.jpg data/images/office.jpg
 ```
 Then you can find the detections in the `detection` folder.
 <br>
-You should see something like this.
-<br>
+You should see something like this
+```
 detection_1.jpg
+```
 ![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_1.jpg)
+```
 detection_2.jpg
+```
 ![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_2.jpg)
 
 ## To-Do List
