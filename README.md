@@ -28,7 +28,7 @@ python load_weights.py
 Now you can run the model using `detect.py` script. Don't forget to setup the IoU (Interception over Union) and confidence thresholds.
 ### Usage
 ```
-python detect.py <iou threshold> <confidence threshol> <images>
+python detect.py <iou threshold> <confidence threshold> <images>
 ```
 ### Example
 Let's run an example using official sample images.
