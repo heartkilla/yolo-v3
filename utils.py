@@ -16,24 +16,24 @@ def load_images(img_names, model_size):
     Returns:
         A 4D NumPy array.
     """
-    ims = []
+    imgs = []
 
     for img_name in img_names:
         img = Image.open(img_name)
-        img_resized = img.resize(size=model_size)
-        im = np.array(img_resized, dtype=np.float32)
-        im = np.expand_dims(im, axis=0)
-        ims.append(im)
+        img = img.resize(size=model_size)
+        img = np.array(img, dtype=np.float32)
+        img = np.expand_dims(img, axis=0)
+        imgs.append(img)
 
-    ims = np.concatenate(ims)
+    imgs = np.concatenate(imgs)
 
-    return ims
+    return imgs
 
 
 def load_class_names(file_name):
     """Returns a list of class names read from `file_name`."""
     with open(file_name, 'r') as f:
-        class_names = f.readlines()
+        class_names = f.read().splitlines()
     return class_names
 
 
@@ -51,12 +51,12 @@ def draw_boxes(img_names, boxes_dicts, class_names, model_size):
     """
     for num, img_name, boxes_dict in zip(range(len(img_names)), img_names,
                                          boxes_dicts):
-        im = Image.open(img_name)
-        draw = ImageDraw.Draw(im)
+        img = Image.open(img_name)
+        draw = ImageDraw.Draw(img)
         font = ImageFont.truetype(font='./data/fonts/futur.ttf',
-                                  size=(im.size[0] + im.size[1]) // 100)
+                                  size=(img.size[0] + img.size[1]) // 100)
         resize_factor = \
-            (im.size[0] / model_size[0], im.size[1] / model_size[1])
+            (img.size[0] / model_size[0], img.size[1] / model_size[1])
         for cls in range(len(class_names)):
             boxes = boxes_dict[cls]
             if np.size(boxes) != 0:
@@ -65,12 +65,12 @@ def draw_boxes(img_names, boxes_dicts, class_names, model_size):
                     xy, confidence = box[:4], box[4]
                     xy = [xy[i] * resize_factor[i % 2] for i in range(4)]
                     x0, y0 = xy[0], xy[1]
-                    thickness = (im.size[0] + im.size[1]) // 200
+                    thickness = (img.size[0] + img.size[1]) // 200
                     for t in np.linspace(0, 1, thickness):
                         xy[0], xy[1] = xy[0] + t, xy[1] + t
                         xy[2], xy[3] = xy[2] - t, xy[3] - t
                         draw.rectangle(xy, outline=tuple(color))
-                    text = '{} {:.1f}%'.format(class_names[cls][:-1],
+                    text = '{} {:.1f}%'.format(class_names[cls],
                                                confidence * 100)
                     text_size = draw.textsize(text, font=font)
                     draw.rectangle(
@@ -79,4 +79,4 @@ def draw_boxes(img_names, boxes_dicts, class_names, model_size):
                     draw.text((x0, y0 - text_size[1]), text, fill='black',
                               font=font)
 
-        im.save('./detections/detection_' + str(num + 1) + '.jpg')
+        img.save('./detections/detection_' + str(num + 1) + '.jpg')
