@@ -7,7 +7,7 @@ Yolo v3 is an algorithm using deep convolutional neural networks to detect objec
 This project is written in Python 3.6.6 using Tensorflow (deep learning), NumPy (numerical computing) and Pillow (image processing) packages.
 
 ```
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 ### Downloading official pretrained weights
@@ -36,3 +36,22 @@ Let's run an example using official sample images.
 python detect.py 0.5 0.5 data/images/dog.jpg data/images/office.jpg
 ```
 Then you can find the detections in the `detection` folder.
+<br>
+You should see something like this
+```
+detection_1.jpg
+```
+![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_1.jpg)
+```
+detection_2.jpg
+```
+![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_2.jpg)
+
+## To-Do List
+* Video processing
+* Model training
+
+## Acknowledgments
+* [Yolo v3 official paper](https://arxiv.org/abs/1804.02767)
+* [A Tensorflow Slim implementation](https://github.com/mystic123/tensorflow-yolo-v3)
+* [ResNet official implementation](https://github.com/tensorflow/models/tree/master/official/resnet)
