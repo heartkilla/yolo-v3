@@ -1,5 +1,5 @@
 # Yolo v3 Object Detection in Tensorflow
-Yolo v3 is an algorithm using deep convolutional neural networks to detect objects.
+Yolo v3 is an algorithm that uses deep convolutional neural networks to detect objects.
 
 ## Getting started
 
