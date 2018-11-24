@@ -41,11 +41,11 @@ You should see something like this
 ```
 detection_1.jpg
 ```
-![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_1.jpg)
+![alt text](https://github.com/heartkilla/yolo-v3/blob/master/data/detection_examples/detection_1.jpg)
 ```
 detection_2.jpg
 ```
-![alt text](https://github.com/heartkilla/yolo-v3/blob/master/detections/detection_2.jpg)
+![alt text](https://github.com/heartkilla/yolo-v3/blob/master/data/detection_examples/detection_2.jpg)
 
 ## To-Do List
 * Video processing
