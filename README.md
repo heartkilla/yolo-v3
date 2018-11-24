@@ -31,7 +31,7 @@ Now you can run the model using `detect.py` script. Don't forget to setup the Io
 python detect.py <iou threshold> <confidence threshold> <images>
 ```
 ### Example
-Let's run an example using official sample images.
+Let's run an example using sample images.
 ```
 python detect.py 0.5 0.5 data/images/dog.jpg data/images/office.jpg
 ```
