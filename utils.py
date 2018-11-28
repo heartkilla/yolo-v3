@@ -22,7 +22,7 @@ def load_images(img_names, model_size):
         img = Image.open(img_name)
         img = img.resize(size=model_size)
         img = np.array(img, dtype=np.float32)
-        img = np.expand_dims(img, axis=0)
+        img = np.expand_dims(img[:, :, :3], axis=0)
         imgs.append(img)
 
     imgs = np.concatenate(imgs)
@@ -78,5 +78,9 @@ def draw_boxes(img_names, boxes_dicts, class_names, model_size):
                         fill=tuple(color))
                     draw.text((x0, y0 - text_size[1]), text, fill='black',
                               font=font)
+                    print('{} {:.2f}%'.format(class_names[cls],
+                                              confidence * 100))
 
-        img.save('./detections/detection_' + str(num + 1) + '.jpg')
+        rgb_img = img.convert('RGB')
+
+        rgb_img.save('./detections/detection_' + str(num + 1) + '.jpg')
