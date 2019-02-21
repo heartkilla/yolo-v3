@@ -35,7 +35,7 @@ Let's run an example using sample images.
 ```
 python detect.py images 0.5 0.5 data/images/dog.jpg data/images/office.jpg
 ```
-Then you can find the detections in the `detection` folder.
+Then you can find the detections in the `detections` folder.
 <br>
 You should see something like this.
 ```
