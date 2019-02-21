@@ -71,7 +71,7 @@ def main(type, iou_threshold, confidence_threshold, input_names):
                     ret, frame = cap.read()
                     if not ret:
                         break
-                    resized_frame = cv2.resize(frame, dsize=_MODEL_SIZE,
+                    resized_frame = cv2.resize(frame, dsize=_MODEL_SIZE[::-1],
                                                interpolation=cv2.INTER_NEAREST)
                     detection_result = sess.run(detections,
                                                 feed_dict={inputs: [resized_frame]})
@@ -83,18 +83,14 @@ def main(type, iou_threshold, confidence_threshold, input_names):
 
                     key = cv2.waitKey(1) & 0xFF
 
-                    # Exit
                     if key == ord('q'):
                         break
-
-                    # Take screenshot
-                    if key == ord('s'):
-                        pass
 
                     out.write(frame)
             finally:
                 cv2.destroyAllWindows()
                 cap.release()
+                print('Detections have been saved successfully.')
 
     else:
         raise ValueError("Inappropriate data type. Please choose either 'video' or 'images'.")
