@@ -1,3 +1,5 @@
 tensorflow
 numpy
 Pillow
+opencv-python
+seaborn
