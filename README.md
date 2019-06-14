@@ -26,7 +26,7 @@ python load_weights.py
 ```
 
 ## Running the model
-Now you can run the model using `detect.py` script. Don't forget to set the IoU (Interception over Union) and confidence thresholds.
+Now you can run the model using `detect.py` script. Don't forget to set the IoU (Intersection over Union) and confidence thresholds.
 ### Usage
 ```
 python detect.py <images/video> <iou threshold> <confidence threshold> <filenames>
